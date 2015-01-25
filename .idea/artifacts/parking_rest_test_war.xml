@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="parking-rest-test:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="rest-test-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="parking-rest-test:war exploded" />
+    </root>
+  </artifact>
+</component>
