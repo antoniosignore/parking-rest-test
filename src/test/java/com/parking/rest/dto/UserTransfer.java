@@ -1,4 +1,4 @@
-package com.hascode.tutorial.rest.transfer;
+package com.parking.rest.dto;
 
 import java.util.Map;
 

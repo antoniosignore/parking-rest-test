@@ -1,4 +1,4 @@
-package com.hascode.tutorial.rest;
+package com.parking.rest;
 
 import java.util.Date;
 
