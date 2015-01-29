@@ -11,17 +11,14 @@ import java.net.URISyntaxException;
 
 public class ParkingTest extends JerseyTest {
 
-    protected String token;
-
-    protected String getToken(String name, String password) throws JSONException,
-            URISyntaxException {
+    protected String getToken(String name, String password) throws JSONException, URISyntaxException {
 
         Form form = new Form();
         form.add("password", password);
         form.add("username", name);
 
-        WebResource webResource = client().resource("http://localhost:8080");
-        JSONObject json = webResource.path("/rest/user/authenticate")
+        WebResource webResource = client().resource("http://localhost:8080/parking");
+        JSONObject json = webResource.path("/rest/account/authenticate")
                 .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
                 .accept("application/json")
                 .type("application/json")
