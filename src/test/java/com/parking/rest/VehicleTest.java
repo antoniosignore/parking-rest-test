@@ -22,7 +22,7 @@ public class VehicleTest extends ApplicationTest {
 	}
 
 	@Test
-	public void testCreatePostSuccess() throws JSONException, URISyntaxException {
+	public void testCreateOneVehicleSuccess() throws JSONException, URISyntaxException {
 
         String authToken = getToken("admin", "admin");
 
@@ -49,6 +49,61 @@ public class VehicleTest extends ApplicationTest {
                 .post(String.class, gson.toJson(vehicle));
 
         System.out.println("vehicle1 = " + vehicle1);
+
+        webResource = client().resource("http://localhost:8080/parking");
+        vehicle1 = webResource.path("/rest/vehicles")
+                .header("X-Auth-Token", authToken)
+                .accept("application/json")
+                .type("application/json")
+                .get(String.class);
+
+        System.out.println("vehicle1 = " + vehicle1);
+
+    }
+
+
+    @Test
+    public void testCreateTwoVehicleSuccess() throws JSONException, URISyntaxException {
+
+        String authToken = getToken("admin", "admin");
+        WebResource webResource = client().resource("http://localhost:8080/parking");
+        JSONObject json = webResource.path("/rest/accounts")
+                .header("X-Auth-Token", authToken)
+                .get(JSONObject.class);
+
+        Gson gson = new Gson();
+        UserTransfer result = gson.fromJson(json.toString(), UserTransfer.class);
+
+        assertEquals("admin", result.getName());
+        assertEquals(2, result.getRoles().size());
+
+        Vehicle vehicle = new Vehicle();
+        vehicle.setName("test content");
+        vehicle.setLicensePlate("Q-111111-QR");
+
+        webResource = client().resource("http://localhost:8080/parking");
+        String vehicle1 = webResource.path("/rest/vehicles")
+                .header("X-Auth-Token", authToken)
+                .accept("application/json")
+                .type("application/json")
+                .post(String.class, gson.toJson(vehicle));
+        System.out.println("vehicle1 = " + vehicle1);
+
+
+        vehicle = new Vehicle();
+        vehicle.setName("test content 2");
+        vehicle.setLicensePlate("Q-222222-QR");
+
+        webResource = client().resource("http://localhost:8080/parking");
+        vehicle1 = webResource.path("/rest/vehicles")
+                .header("X-Auth-Token", authToken)
+                .accept("application/json")
+                .type("application/json")
+                .post(String.class, gson.toJson(vehicle));
+        System.out.println("vehicle1 = " + vehicle1);
+
+
+
 
         webResource = client().resource("http://localhost:8080/parking");
         vehicle1 = webResource.path("/rest/vehicles")
