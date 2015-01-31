@@ -27,7 +27,9 @@ public class UserServiceTest extends ParkingTest {
 	@Test
 	public void testUserFetchesSuccess() throws JSONException,
 			URISyntaxException {
+
         String authToken = getToken("user", "user");
+
 		WebResource webResource = client().resource("http://localhost:8080/parking");
 		JSONObject json = webResource.path("/rest/account")
                 .header("X-Auth-Token", authToken)

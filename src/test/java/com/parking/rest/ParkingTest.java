@@ -21,7 +21,6 @@ public class ParkingTest extends JerseyTest {
         JSONObject json = webResource.path("/rest/account/authenticate")
                 .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
                 .accept("application/json")
-                .type("application/json")
                 .post(JSONObject.class,form);
 
         return (String) json.get("token");
