@@ -1,7 +1,5 @@
 package com.parking.rest.entity;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
 import java.util.Date;
 
 public class Post  {
@@ -17,7 +15,6 @@ public class Post  {
     private Account owner;
 
     public Post() {
-//        this.date = new Date();
     }
 
     public Long getId() {
@@ -59,7 +56,6 @@ public class Post  {
     public void setTitle(String title) {
         this.title = title;
     }
-
 
     @Override
     public boolean equals(Object o) {

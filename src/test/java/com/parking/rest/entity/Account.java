@@ -21,7 +21,6 @@ public class Account {
         /* Reflection instantiation */
     }
 
-
     public Account(String name, String passwordHash) {
         this.name = name;
         this.password = passwordHash;

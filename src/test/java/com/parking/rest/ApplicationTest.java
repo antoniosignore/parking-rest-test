@@ -9,7 +9,7 @@ import org.codehaus.jettison.json.JSONObject;
 import javax.ws.rs.core.MediaType;
 import java.net.URISyntaxException;
 
-public class ParkingTest extends JerseyTest {
+public class ApplicationTest extends JerseyTest {
 
     protected String getToken(String name, String password) throws JSONException, URISyntaxException {
 
@@ -18,10 +18,10 @@ public class ParkingTest extends JerseyTest {
         form.add("username", name);
 
         WebResource webResource = client().resource("http://localhost:8080/parking");
-        JSONObject json = webResource.path("/rest/account/authenticate")
+        JSONObject json = webResource.path("/rest/accounts/authenticate")
                 .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
                 .accept("application/json")
-                .post(JSONObject.class,form);
+                .post(JSONObject.class, form);
 
         return (String) json.get("token");
     }
