@@ -105,14 +105,13 @@ public class VehicleTest extends ApplicationTest {
 
         // GET 1
         webResource = client().resource("http://localhost:8080/parking");
-        vehicle1 = webResource.path("/rest/vehicles/3")
+        vehicle1 = webResource.path("/rest/vehicles/33")
                 .header("X-Auth-Token", authToken)
                 .accept("application/json")
                 .type("application/json")
                 .get(String.class);
 
         System.out.println("GET vehicle1 = " + vehicle1);
-
 
         // GET ALL
         webResource = client().resource("http://localhost:8080/parking");
@@ -122,7 +121,7 @@ public class VehicleTest extends ApplicationTest {
                 .type("application/json")
                 .get(String.class);
 
-        System.out.println("vehicle1 = " + vehicle1);
+        System.out.println("GET vehicle1 = " + vehicle1);
 
     }
 }
