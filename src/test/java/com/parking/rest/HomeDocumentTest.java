@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.net.URISyntaxException;
 
-public class RootPageTest extends ApplicationTest {
+public class HomeDocumentTest extends ApplicationTest {
 
 
 
